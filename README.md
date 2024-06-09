@@ -10,6 +10,7 @@ This project is a Prison Management System for the women's prison "Neva Tirzah."
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -86,6 +87,13 @@ We welcome contributions to improve the Neva Tirzah Prison Management System! To
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
+## Contact
+
+For any questions or concerns, please contact:
+
+**Sara Toporowitch**  
+Email: [s0534107064@gmail.com](mailto:s0534107064@gmail.com)
+
 ---
 
-Feel free to reach out if you have any questions or need further assistance. Thank you for using the Neva Tirzah Prison Management System!
+© 2024 Sara Toprowitch. All rights reserved.
