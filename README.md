@@ -10,7 +10,6 @@ This project is a Prison Management System for the women's prison "Neva Tirzah."
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
