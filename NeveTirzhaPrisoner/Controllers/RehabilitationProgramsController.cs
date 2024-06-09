@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using NeveTirzhaPrisoner.API.Models;
+using NeveTirzhaPrisoner.Core.DTOs;
+using NeveTirzhaPrisoner.Core.Services;
+using NeveTirzhaPrisoner.Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,22 +13,25 @@ namespace NeveTirzahPrison.Controllers
     [ApiController]
     public class RehabilitationProgramsController : ControllerBase
     {
-        public RehabilitationProgramsController(DataContext dataContext)
+        private readonly IRehabilitationProgramsService _rehabilitationProgramsService;
+        private readonly IMapper _mapper;
+        public RehabilitationProgramsController(IRehabilitationProgramsService rehabilitationPrograms, IMapper mapper)
         {
-
+            _rehabilitationProgramsService = rehabilitationPrograms;
+            _mapper = mapper;
         }
-        // GET: api/<RehabilitationProgramsController>
+        //GET: api/<PrisonerGuardController>
         [HttpGet]
-        public IEnumerable<RehabilitationPrograms> GetByDay(Day day)
+        public IActionResult Get()
         {
-            return DataContext.rehabilitationPrograms.Where(r => r.DayOfWeek == day);
+            return Ok(_mapper.Map<IEnumerable<RehabilitationProgramsService>>(_rehabilitationProgramsService.Get()));
         }
 
-        // GET api/<RehabilitationProgramsController>/5
+        //GET api/<RehabilitationProgramsController>/5
         [HttpGet("{id}")]
         public ActionResult<RehabilitationPrograms> Get(int id)
         {
-            var x = DataContext.rehabilitationPrograms.Find(r => r.Id == id);
+            var x = _rehabilitationProgramsService.GetById(id);
             if (x == null)
                 return NotFound();
             else
@@ -33,40 +41,34 @@ namespace NeveTirzahPrison.Controllers
         }
         // POST api/<RehabilitationProgramsController>
         [HttpPost]
-        public void Post([FromBody] RehabilitationPrograms value)
+        public void Post([FromBody] RehabilitationProgramsPostModel value)
         {
-            DataContext.rehabilitationPrograms.Add(new RehabilitationPrograms { Id = value.Id, Programs = value.Programs, Moderator = value.Moderator, DayOfWeek = value.DayOfWeek, LengthInMonths = value.LengthInMonths });
+            var r = new RehabilitationPrograms { Programs = value.Programs, Moderator = value.Moderator, DayOfWeek = value.DayOfWeek, LengthInMonths = value.LengthInMonths };
+            _rehabilitationProgramsService.Post(r);
         }
 
         // PUT api/<RehabilitationProgramsController>/5
         [HttpPut("{id}")]
-        public ActionResult<RehabilitationPrograms> Put(int id, [FromBody] RehabilitationPrograms value)
+        public ActionResult<RehabilitationPrograms> Put(int id, [FromBody] RehabilitationProgramsPostModel value)
         {
-            var x = DataContext.rehabilitationPrograms.Find(r => r.Id == id);
-            if (x == null)
+            var r = new RehabilitationPrograms { Programs = value.Programs, Moderator = value.Moderator, DayOfWeek = value.DayOfWeek, LengthInMonths = value.LengthInMonths };
+            if (r == null)
                 return NotFound();
             else
             {
-                x.Id = value.Id;
-                x.Programs = value.Programs;
-                x.Moderator = value.Moderator;
-                x.DayOfWeek = value.DayOfWeek;
-                x.LengthInMonths = value.LengthInMonths;
-                return x;
+                r.Programs = value.Programs;
+                r.Moderator = value.Moderator;
+                r.DayOfWeek = value.DayOfWeek;
+                r.LengthInMonths = value.LengthInMonths;
+                return Ok(_rehabilitationProgramsService.Put(id, r));
             }
         }
         // DELETE api/<RehabilitationProgramsController>/5
         [HttpDelete("{id}")]
         public ActionResult<RehabilitationPrograms> Delete(int id)
         {
-            var x = DataContext.rehabilitationPrograms.Find(r => r.Id == id);
-            if (x == null)
-                return NotFound();
-            else
-            {
-                DataContext.rehabilitationPrograms.Remove(x);
-                return NoContent();
-            }
+            _rehabilitationProgramsService.Delete(id);
+            return Ok();
         }
     }
 }

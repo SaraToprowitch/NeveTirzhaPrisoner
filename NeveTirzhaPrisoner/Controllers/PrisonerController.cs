@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using NeveTirzhaPrisoner.API.Models;
+using NeveTirzhaPrisoner.Core.DTOs;
+using NeveTirzhaPrisoner.Core.Services;
+using NeveTirzhaPrisoner.Service;
 using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,23 +14,27 @@ namespace NeveTirzahPrison.Controllers
     [ApiController]
     public class PrisonerController : ControllerBase
     {
-        public PrisonerController(DataContext dataContext)
-        {
+        private readonly IPrisonerService _prisonerService;
+        private readonly IMapper _mapper;
 
+        public PrisonerController(IPrisonerService prisonerService, IMapper mapper)
+        {
+            _prisonerService = prisonerService;
+            _mapper = mapper;
         }
 
         // GET: api/<PrisonerController>
         [HttpGet]
-        public IEnumerable<Prisoner> Get()
+        public IActionResult Get()
         {
-            return DataContext.prisoners;
+            return Ok(_mapper.Map<IEnumerable<PrisonerDTO>>(_prisonerService.Get()));
         }
 
         // GET api/<PrisonerController>/5
         [HttpGet("{id}")]
         public ActionResult<Prisoner> Get(int id)
         {
-            var x = DataContext.prisoners.Find(r => r.Id == id);
+            var x = _prisonerService.GetById(id);
             if (x == null)
                 return NotFound();
             else
@@ -36,42 +45,29 @@ namespace NeveTirzahPrison.Controllers
 
         // POST api/<PrisonerController>
         [HttpPost]
-        public void Post([FromBody] Prisoner value)
+        public void Post([FromBody] PrisonerPostModel value)
         {
-            DataContext.prisoners.Add(new Prisoner { Id = value.Id, Name = value.Name, DateBirth = value.DateBirth, YearsInPrison = value.YearsInPrison, Religion = value.Religion });
+            var p=new Prisoner { Name = value.Name, DateBirth = value.DateBirth, YearsInPrison = value.YearsInPrison, Religion = value.Religion };
+            _prisonerService.Post(p);   
         }
 
         // PUT api/<PrisonerController>/5
         [HttpPut("{id}")]
-        public ActionResult<Prisoner> Put(int id, [FromBody] Prisoner value)
+        public ActionResult<Prisoner> Put(int id, [FromBody] PrisonerPostModel value)
         {
-            var x = DataContext.prisoners.Find(r => r.Id == id);
-            if (x == null)
+            var p = new Prisoner { Name = value.Name, DateBirth = value.DateBirth, YearsInPrison = value.YearsInPrison, Religion = value.Religion };
+            if (p == null)
                 return NotFound();
             else
             {
-                x.Id = value.Id;
-                x.Name = value.Name;
-                x.DateBirth = value.DateBirth;
-                x.YearsInPrison = value.YearsInPrison;
-                x.Religion = value.Religion;
-                return x;
-            }
-        }
-
-        // PUT api/<PrisonerController>/5/updateYears
-        [HttpPut("{id}/updateYears")]
-        public ActionResult<Prisoner> UpdateYearsInPrison(int id, int years)
-        {
-            var x = DataContext.prisoners.Find(r => r.Id == id);
-            if (x == null)
-                return NotFound();
-            else
-            {
-                if ((x.YearsInPrison - years) > 0)
-                    x.YearsInPrison = x.YearsInPrison - years;
-                else Delete(x.Id);
-                return NoContent();
+                p.Name = value.Name;
+                p.DateBirth = value.DateBirth;
+                if ((p.YearsInPrison - value.YearsInPrison) > 0)
+                    p.YearsInPrison -= value.YearsInPrison;
+                else Delete(p.Id);
+                p.YearsInPrison = value.YearsInPrison;
+                p.Religion = value.Religion;
+                return Ok(_prisonerService.Put(id,p));
             }
         }
 
@@ -79,14 +75,8 @@ namespace NeveTirzahPrison.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Prisoner> Delete(int id)
         {
-            var x = DataContext.prisoners.Find(r => r.Id == id);
-            if (x == null)
-                return NotFound();
-            else
-            {
-                DataContext.prisoners.Remove(x);
-                return NoContent();
-            }
+            _prisonerService.Delete(id);
+            return Ok();
         }
     }
 }

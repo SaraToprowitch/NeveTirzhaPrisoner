@@ -1,0 +1,34 @@
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.deps.json
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.runtimeconfig.json
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.pdb
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Core.dll
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Core.pdb
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.AssemblyReference.cache
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.AssemblyInfoInputs.cache
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.AssemblyInfo.cs
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.CoreCompileInputs.cache
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.CopyComplete
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\refint\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.pdb
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.genruntimeconfig.cache
+C:\תכנות לימודים\שנה ב\.net core\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\ref\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.deps.json
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.runtimeconfig.json
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Data.pdb
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Core.dll
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\bin\Debug\net6.0\NeveTirzhaPrisoner.Core.pdb
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.AssemblyReference.cache
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.AssemblyInfoInputs.cache
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.AssemblyInfo.cs
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.CoreCompileInputs.cache
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.csproj.CopyComplete
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\refint\NeveTirzhaPrisoner.Data.dll
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.pdb
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\NeveTirzhaPrisoner.Data.genruntimeconfig.cache
+C:\תכנות לימודים\שנה ב\.NET\NeveTirzhaPrisoner\NeveTirzhaPrisoner.Data\obj\Debug\net6.0\ref\NeveTirzhaPrisoner.Data.dll

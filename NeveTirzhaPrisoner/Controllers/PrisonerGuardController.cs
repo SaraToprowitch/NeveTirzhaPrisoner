@@ -1,5 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NeveTirzhaPrisoner.Core.Services;
 using NeveTirzahPrison;
+using System;
+using AutoMapper;
+using NeveTirzhaPrisoner.Core.DTOs;
+using NeveTirzhaPrisoner.Service;
+using NeveTirzhaPrisoner.API.Models;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,22 +16,25 @@ namespace NeveTirzahPrison.Controllers
     [ApiController]
     public class PrisonerGuardController : ControllerBase
     {
-        public PrisonerGuardController(DataContext dataContext)
+        private readonly IPrisonerGuardService _prisonerGuardService;
+        private readonly IMapper _mapper;
+        public PrisonerGuardController(IPrisonerGuardService prisonerGuard, IMapper mapper)
         {
-
+            _prisonerGuardService = prisonerGuard;
+            _mapper = mapper;
         }
-        // GET: api/<PrisonerGuardController>
+        //GET: api/<PrisonerGuardController>
         [HttpGet]
-        public IEnumerable<PrisonGuard> Get()
+        public IActionResult Get()
         {
-            return DataContext.prisonGuards;
+            return Ok(_mapper.Map<IEnumerable<PrisonerGuardDTO>>(_prisonerGuardService.Get()));
         }
 
         // GET api/<PrisonerGuardController>/5
         [HttpGet("{id}")]
         public ActionResult<PrisonGuard> Get(int id)
         {
-            var x = DataContext.prisonGuards.Find(r => r.Id == id);
+            var x = _prisonerGuardService.GetById(id);
             if (x == null)
                 return NotFound();
             else
@@ -33,41 +43,32 @@ namespace NeveTirzahPrison.Controllers
             }
         }
 
+
         // POST api/<PrisonerGuardController>
         [HttpPost]
-        public void Post([FromBody] PrisonGuard value)
+        public void Post([FromBody] PrisonerGuardPostModel value)
         {
-            DataContext.prisonGuards.Add(new PrisonGuard { Id = value.Id, Name = value.Name, Role = value.Role, ShiftTime = value.ShiftTime, HourlySalary = value.HourlySalary });
+            var p = new PrisonGuard { Name = value.Name, Role = value.Role, ShiftTime = value.ShiftTime, HourlySalary = value.HourlySalary };
+            _prisonerGuardService.Post(p);
         }
 
         // PUT api/<PrisonerGuardController>/5
         [HttpPut("{id}")]
-        public ActionResult<PrisonGuard> Put(int id, [FromBody] PrisonGuard value)
+        public ActionResult<PrisonGuard> Put(int id, [FromBody] PrisonerGuardPostModel value)
         {
-            var x = DataContext.prisonGuards.Find(r => r.Id == id);
-            if (x == null)
+            var p = new PrisonGuard { Name = value.Name, Role = value.Role, ShiftTime = value.ShiftTime, HourlySalary = value.HourlySalary };
+            if (p == null)
                 return NotFound();
             else
             {
-                x.Id = value.Id;
-                x.Name = value.Name;
-                x.Role = value.Role;
-                x.ShiftTime = value.ShiftTime;
-                x.HourlySalary = value.HourlySalary;
-                return x;
-            }
-        }
-        // PUT api/<PrisonerGuardController>/5
-        [HttpPut("/api/<PrisonerGuard/updateSalary")]
-        public ActionResult<PrisonGuard> Put()
-        {
-            var x = DataContext.prisonGuards.Find(r => r.ShiftTime == Shift.night);
-            if (x == null)
-                return NotFound();
-            else
-            {
-                x.HourlySalary = x.HourlySalary + 50f;
-                return x;
+                p.Name = value.Name;
+                p.Role = value.Role;
+                p.ShiftTime = value.ShiftTime;
+                if (value.ShiftTime == Shift.night)
+                    p.HourlySalary = value.HourlySalary + 25;
+                else
+                    p.HourlySalary = value.HourlySalary;
+                return Ok(_prisonerGuardService.Put(id, p));
             }
         }
 
@@ -75,14 +76,9 @@ namespace NeveTirzahPrison.Controllers
         [HttpDelete("{id}")]
         public ActionResult<PrisonGuard> Delete(int id)
         {
-            var x = DataContext.prisonGuards.Find(r => r.Id == id);
-            if (x == null)
-                return NotFound();
-            else
-            {
-                DataContext.prisonGuards.Remove(x);
-                return NoContent();
-            }
+            _prisonerGuardService.Delete(id);
+            return Ok();
         }
+
     }
 }

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "X56Se6z3uAH1H8zkepnrgHDtkz8/zSt5ZouqEs2M/rg=",
-  "Source": "NeveTirzhaPrisoner",
-  "BasePath": "_content/NeveTirzhaPrisoner",
+  "Hash": "xsNCUTppvB/2iGZN9dk36MB/vmBz5KISwOY80ABAvJg=",
+  "Source": "NeveTirzhaPrisoner.API",
+  "BasePath": "_content/NeveTirzhaPrisoner.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
